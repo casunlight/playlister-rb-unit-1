@@ -30,8 +30,8 @@ describe "Song" do
   describe "Class Methods" do
 
     it "can find all matches for a song" do
-      song.name = "My song"
-      Song.find("My song").should include(song)
+      song.name = "My new song"
+      Song.find("My new song").should eq(song)
     end
   end
 end

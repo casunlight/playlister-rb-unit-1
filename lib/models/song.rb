@@ -18,7 +18,7 @@ class Song
   end
 
   def self.find(song)
-    Song.all.select { |s| s.name == song  }
+    Song.all.select { |s| s.name == song  }.first
   end
 
 

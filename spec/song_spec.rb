@@ -26,4 +26,12 @@ describe "Song" do
     artist.add_song(song)
     song.artist.should eq(artist)
   end
+
+  describe "Class Methods" do
+
+    it "can find all matches for a song" do
+      song.name = "My song"
+      Song.find("My song").should include(song)
+    end
+  end
 end

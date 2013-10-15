@@ -1,15 +1,12 @@
-
-
-# 100.times do
-#   Dog.new.tap do |d|
-#     d.name = Faker::Name.name 
-#     d.color = Faker::Lorem.word
-#     d.bio = Faker::Lorem.paragraph
-#     d.save
-#   end
-# end
-
 class SiteGenerator
+
+  def self.call
+    self.generate_artist_index
+    self.generate_genre_index
+    self.generate_artist
+    self.generate_genre
+    self.generate_song
+  end
 
   def self.generate_artist_index
     index = ERB.new(File.open('lib/views/artist_index.erb').read)
@@ -36,7 +33,6 @@ class SiteGenerator
   def self.generate_artist
     file_name= "lib/views/artist.erb"
     show = ERB.new(File.open(file_name).read)
-    # For each dog, first, cast the dog into instance var
 
     Artist.all.each do |artist|
 
@@ -45,6 +41,30 @@ class SiteGenerator
       end
     end
   end
+
+  def self.generate_genre
+    file_name= "lib/views/genre.erb"
+    show = ERB.new(File.open(file_name).read)
+
+    Genre.all.each do |genre|
+
+      File.open("_site/genres/#{self.normalize(genre.name)}.html", 'w+') do |f|
+        f << show.result(binding)
+      end
+    end
+  end
+
+  def self.generate_song
+    show = ERB.new(File.open('lib/views/song.erb').read)
+   
+    Song.all.each do |song|
+
+      File.open("_site/songs/#{self.normalize(song.name)}.html", 'w+') do |f|
+        f << show.result(binding)
+      end
+    end
+  end
+
 
   #   def generate_song
   #   file_name= "lib/views/song.erb"

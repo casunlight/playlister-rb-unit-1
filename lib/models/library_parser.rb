@@ -14,8 +14,7 @@ class LibraryParser
       file = file.gsub(' - ','|').gsub(' [','|').gsub(']','|')[0...-5]
       artist, song, genre = file.split('|')
 
-      artist_insert = Artist.all.select { |a| a.name == artist }.first
-
+      artist_insert = Artist.find(artist)
       if artist_insert.nil?
         artist_insert = Artist.new.tap do |a|
           a.name = artist
@@ -26,8 +25,7 @@ class LibraryParser
         s.name = song
       end
 
-      genre_insert = Genre.all.select { |g| g.name == genre }.first
-
+      genre_insert = Genre.find(genre)
       if genre_insert.nil?
         genre_insert = Genre.new.tap do |g|
           g.name = genre

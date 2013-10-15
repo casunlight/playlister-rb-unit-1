@@ -3,8 +3,12 @@ require_relative 'lib/models/artist.rb'
 require_relative 'lib/models/genre.rb'
 require_relative 'lib/models/song.rb'
 require_relative 'lib/models/library_parser.rb'
+require_relative 'lib/models/command_line.rb'
 
-parser = LibraryParser.new('/Users/scott1/Development/flatiron_homework/playlister-rb-unit-1/db/data')
+parser = LibraryParser.new("#{Dir.pwd}/db/data")
 
 parser.call
-binding.pry
+
+
+cmd = CommandLine.new
+cmd.call

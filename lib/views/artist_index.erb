@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h1>Welcome to the Artists Page!</h1>
+
+    <p>Please enjoy browsing our Artist selection.</p>
+
+    <ul>
+      <% artists.each do |artist| %>
+      <li>
+        <a href="artists/<%= SiteGenerator.normalize(artist.name) %>.html"><%= artist.name %></a>:
+        <%= artist.song_count == 1 ? "1 Song" : "#{artist.song_count} Songs" %>
+      </li>
+      <% end %>
+    </ul>
+    <a href="index.html">Home</a>
+  </body>
+</html>

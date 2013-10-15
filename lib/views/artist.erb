@@ -1,0 +1,13 @@
+<html>
+<body>
+  <h1><%= artist.name %></h1>
+  <h2><%= artist.song_count == 1 ? "1 Song" : "#{artist.song_count} Songs" %></h2>
+    
+ <% artist.songs.each_with_index do |s,index| %>
+
+ <p><%="#{index+1}. "%><a href="../songs/<%= SiteGenerator.normalize(s.name) %>.html"> <%="#{s.name}"%></a> - 
+ <a href="../genres/<%= SiteGenerator.normalize(s.genre.name) %>.html"><%= s.genre.name %></a></p>
+  <% end %>
+  <a href="../index.html">Home</a>
+</body>
+</html>

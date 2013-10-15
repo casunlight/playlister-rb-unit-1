@@ -1,0 +1,13 @@
+<html>
+<body>
+  <h1><%= genre.name %></h1>
+  
+  <% genre.songs.each do |s| %>
+  <p>
+    <a href="../artists/<%= SiteGenerator.normalize(s.artist.name) %>.html"><%= s.artist.name %></a> |
+    <a href="../songs/<%= SiteGenerator.normalize(s.name) %>.html"><%= s.name %></a>
+  </p>
+  <% end %>
+  <a href="../index.html">Home</a>
+</body>
+</html>

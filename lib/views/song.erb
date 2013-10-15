@@ -1,0 +1,12 @@
+<html>
+<body>
+  <h1><%= song.name %></h1>
+
+ <p><a href="../artists/<%= SiteGenerator.normalize(song.artist.name) %>.html"><%= song.artist.name %></a> | 
+ <a href="../genres/<%= SiteGenerator.normalize(song.genre.name) %>.html"><%= song.genre.name %></a></p>
+
+ <%= SiteGenerator.make_youtube_link("#{song.artist.name} + #{song.name}") %>
+
+  <a href="../index.html">Home</a>
+</body>
+</html>

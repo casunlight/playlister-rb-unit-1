@@ -69,5 +69,10 @@ describe "Artist" do
       Artist.count.should eq(0)
     end
 
+    it "can find specific artists" do
+      a = Artist.new.tap { |art| art.name = "Kanye"  }
+      Artist.find("Kanye").should eq(a)
+    end
+
   end
 end

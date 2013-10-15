@@ -31,4 +31,8 @@ class Artist
     all.count
   end
 
+  def self.find(artist)
+    self.all.select { |a| a.name == artist }.first
+  end
+
 end

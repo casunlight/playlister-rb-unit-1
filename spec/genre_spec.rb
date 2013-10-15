@@ -70,5 +70,11 @@ describe "Genre" do
       Genre.count.should eq(0)
     end
 
+    it "can find specific genres" do
+      Genre.reset_genres
+      g = Genre.new.tap { |gen| gen.name = "rap" }
+      Genre.find("rap").should eq(g)
+    end
+
   end
 end

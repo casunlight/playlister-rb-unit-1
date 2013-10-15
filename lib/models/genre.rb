@@ -26,4 +26,8 @@ class Genre
     all
   end
 
+  def self.find(genre)
+    Genre.all.select {|g| g.name == genre }.first
+  end
+
 end

@@ -6,7 +6,7 @@
 
     <ul>
       <% genres.each do |genre| %>
-      <li><a href="genres/<%= SiteGenerator.normalize(genre.name) %>.html"><%= genre.name %></a></li>
+      <li><a href="genres/<%= SiteGenerator.normalize(genre.name) %>.html"><%= "#{genre.name}: "%></a></li>
       <% end %>
     </ul>
   </body>

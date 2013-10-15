@@ -1,12 +1,14 @@
 <html>
   <body>
-    <h1>Welcome to Artist Page</h1>
+    <h1>Welcome to the Artists Page!</h1>
 
-    <p>Please enjoy browsing our Artists.</p>
+    <p>Please enjoy browsing our Artist selection.</p>
 
     <ul>
       <% artists.each do |artist| %>
-      <li><a href="artists/<%= SiteGenerator.normalize(artist.name) %>.html"><%= artist.name %></a></li>
+      <li>
+        <a href="artists/<%= SiteGenerator.normalize(artist.name) %>.html"><%= artist.name %> | <%= artist.song_count %></a>
+      </li>
       <% end %>
     </ul>
   </body>

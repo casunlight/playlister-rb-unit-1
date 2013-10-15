@@ -31,6 +31,10 @@ class Artist
     all.count
   end
 
+  def song_count
+    self.songs.size
+  end
+
   def self.find(artist)
     self.all.select { |a| a.name == artist }.first
   end

@@ -65,6 +65,12 @@ class SiteGenerator
     end
   end
 
+  def self.make_youtube_link(song_string)
+    yt = YoutubeSearch.search(song_string).first["video_id"]
+    link = "http://www.youtube.com/embed/#{yt}"
+
+    "<iframe src='" + link + "'width=640 height=480 frameborder=0></iframe>"
+  end
 
   #   def generate_song
   #   file_name= "lib/views/song.erb"

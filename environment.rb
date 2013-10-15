@@ -1,5 +1,6 @@
 require 'pry'
 require 'erb'
+require 'youtube_search'
 require_relative 'lib/models/artist.rb'
 require_relative 'lib/models/genre.rb'
 require_relative 'lib/models/song.rb'

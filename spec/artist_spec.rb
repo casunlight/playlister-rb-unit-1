@@ -16,6 +16,7 @@ describe "Artist" do
 
     let(:artist) { Artist.new }
     let(:song) { Song.new }
+    let(:rap) { Genre.new }
 
     it "has songs" do
       artist.songs = []
@@ -23,6 +24,7 @@ describe "Artist" do
     end
 
     it "can have a song added" do
+      song.genre = rap
       artist.add_song(song)
       artist.songs.should include(song)
     end

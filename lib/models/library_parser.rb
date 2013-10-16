@@ -11,8 +11,8 @@ class LibraryParser
 
       next if !file.include?(".mp3")
 
-      file = file.gsub(' - ','|').gsub(' [','|').gsub(']','|')[0...-5]
-      artist, song, genre = file.split('|')
+      file = file.gsub('[','- ')[0..-6] #remove ].mp3 from file name
+      artist, song, genre = file.split(' - ')
 
       artist_to_insert = Artist.find(artist) || Artist.new.tap {|a| a.name = artist }
       song_to_insert = Song.new.tap {|s| s.name = song }
